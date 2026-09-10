@@ -21,6 +21,7 @@ import ContactSection from '../src/components/ContactSection';
 import Footer from '../src/components/Footer';
 import CustomCursor from '../src/components/CustomCursor';
 import PortfolioSignals from '../src/components/PortfolioSignals';
+import Chatbot from '../src/components/Chatbot';
 import useScrollAnimations from '../src/hooks/useScrollAnimations';
 
 const Scene3D = dynamic(() => import('../src/components/Scene3D'), {
@@ -95,6 +96,7 @@ export default function PortfolioApp({ initialContent }) {
   const [theme, setTheme] = useState('light');
   const [themeTransitioning, setThemeTransitioning] = useState(false);
   const [navHidden, setNavHidden] = useState(false);
+  const [sidebarClosed, setSidebarClosed] = useState(false);
   const lastScrollYRef = useRef(0);
 
   const mainRef = useRef(null);
@@ -173,15 +175,21 @@ export default function PortfolioApp({ initialContent }) {
       {/* 3D background */}
       <Scene3D scrollY={scrollY} />
       <PortfolioSignals />
+      <Chatbot content={content} />
 
       {/* Portfolio */}
-      <div className={`app-container${navHidden ? ' nav-collapsed' : ''}`} ref={mainRef}>
+      <div className={`app-container${navHidden || sidebarClosed ? ' nav-collapsed' : ''}`} ref={mainRef}>
         <Navbar
           activeSection={activeSection}
           menuOpen={menuOpen}
           onToggleMenu={() => setMenuOpen((o) => !o)}
+          onToggleSidebar={() => {
+            setNavHidden(false);
+            setSidebarClosed(false);
+          }}
+          onCloseSidebar={() => setSidebarClosed(true)}
           onCloseMenu={() => setMenuOpen(false)}
-          hidden={navHidden}
+          hidden={navHidden || sidebarClosed}
           resumeUrl={content.hero.resumeUrl || resumeUrl}
           theme={theme}
           onToggleTheme={toggleTheme}

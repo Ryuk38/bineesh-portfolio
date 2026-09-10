@@ -1,0 +1,33 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="core" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(128 116) rotate(90) scale(79)">
+      <stop stop-color="#E0FCFF"/>
+      <stop offset="0.38" stop-color="#67E8F9"/>
+      <stop offset="1" stop-color="#2563EB"/>
+    </radialGradient>
+    <linearGradient id="ring" x1="38" y1="30" x2="211" y2="223" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#A78BFA"/>
+      <stop offset="0.5" stop-color="#22D3EE"/>
+      <stop offset="1" stop-color="#FBBF24"/>
+    </linearGradient>
+    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <circle cx="128" cy="128" r="116" fill="#0B1530"/>
+  <circle cx="128" cy="128" r="103" stroke="url(#ring)" stroke-width="5" stroke-dasharray="38 18 8 14"/>
+  <ellipse cx="128" cy="128" rx="122" ry="47" transform="rotate(-22 128 128)" stroke="#67E8F9" stroke-opacity="0.46" stroke-width="3"/>
+  <ellipse cx="128" cy="128" rx="122" ry="47" transform="rotate(38 128 128)" stroke="#A78BFA" stroke-opacity="0.35" stroke-width="2"/>
+  <circle cx="218" cy="91" r="7" fill="#FBBF24" filter="url(#glow)"/>
+  <circle cx="54" cy="177" r="4" fill="#67E8F9" filter="url(#glow)"/>
+  <circle cx="128" cy="118" r="68" fill="url(#core)"/>
+  <path d="M82 113C87 77 108 60 129 60C151 60 172 77 176 113C162 96 147 89 129 89C111 89 96 96 82 113Z" fill="#172554"/>
+  <path d="M88 113C88 151 104 174 129 174C153 174 169 151 169 113" stroke="#DFFBFF" stroke-opacity="0.58" stroke-width="3"/>
+  <circle cx="108" cy="121" r="7" fill="#0F1D43"/>
+  <circle cx="149" cy="121" r="7" fill="#0F1D43"/>
+  <circle cx="110" cy="119" r="2" fill="#F8FEFF"/>
+  <circle cx="151" cy="119" r="2" fill="#F8FEFF"/>
+  <path d="M111 146C121 153 137 153 147 146" stroke="#0F1D43" stroke-width="4" stroke-linecap="round"/>
+  <path d="M128 42V25M128 231V214" stroke="#67E8F9" stroke-width="3" stroke-linecap="round" opacity="0.75"/>
+</svg>

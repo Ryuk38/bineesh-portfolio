@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
-import { Linkedin, Mail, Phone, MapPin, Github, Instagram, ExternalLink } from 'lucide-react';
+import { Linkedin, Mail, Phone, MapPin, Github, Instagram, ExternalLink, Send } from 'lucide-react';
 
 function SectionHeading({ children, className = '' }) {
   return <h2 className={`section-heading ${className}`}>{children}</h2>;
@@ -116,18 +116,21 @@ export default function ContactSection({ contact }) {
           onSubmit={handleSubmit}
           className="glass-strong contact-form contact-template-form reveal-right"
         >
-          <h3 className="form-title">Send a Message</h3>
+          <div className="form-header">
+            <span className="form-eyebrow">DIRECT CHANNEL</span>
+            <h3 className="form-title">Send a Message</h3>
+          </div>
           <div className="form-group">
             <label className="form-label" htmlFor="from_name">Your Name</label>
-            <input id="from_name" type="text" name="from_name" required className="form-input" />
+            <input id="from_name" type="text" name="from_name" autoComplete="name" placeholder="How should I address you?" required className="form-input" />
           </div>
           <div className="form-group">
             <label className="form-label" htmlFor="from_email">Your Email</label>
-            <input id="from_email" type="email" name="from_email" required className="form-input" />
+            <input id="from_email" type="email" name="from_email" autoComplete="email" placeholder="you@example.com" required className="form-input" />
           </div>
           <div className="form-group">
             <label className="form-label" htmlFor="message">Message</label>
-            <textarea id="message" name="message" rows="4" required className="form-input" style={{ resize: 'vertical' }} />
+            <textarea id="message" name="message" rows="4" placeholder="Tell me what you’re building..." required className="form-input" style={{ resize: 'vertical' }} />
           </div>
 
           {status.message && (
@@ -137,6 +140,7 @@ export default function ContactSection({ contact }) {
           )}
 
           <button type="submit" disabled={isSubmitting} className="btn btn-primary btn-submit">
+            <Send size={16} aria-hidden="true" />
             {isSubmitting ? 'Sending...' : 'Send Message'}
           </button>
         </form>

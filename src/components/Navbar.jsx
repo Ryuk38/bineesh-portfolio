@@ -13,6 +13,8 @@ export default function Navbar({
   activeSection,
   menuOpen,
   onToggleMenu,
+  onToggleSidebar,
+  onCloseSidebar,
   onCloseMenu,
   resumeUrl,
   theme,
@@ -22,16 +24,30 @@ export default function Navbar({
 }) {
   return (
     <>
+      <button
+        type="button"
+        className={`sidebar-reopen${hidden ? ' visible' : ''}`}
+        onClick={onToggleSidebar}
+        aria-label="Open sidebar navigation"
+        title="Open navigation"
+      >
+        <Menu size={20} aria-hidden="true" />
+      </button>
       <nav className={`navbar${hidden ? ' navbar-hidden' : ''}`} role="navigation" aria-label="Main navigation">
         <div className="navbar-inner">
           <div className="navbar-pill" role="menubar" aria-label="Primary">
-              <a href="#home" className="navbar-brand" aria-label={`${brand || 'Bineesh'} home`}>
+              <div className="navbar-brand-row">
+                <a href="#home" className="navbar-brand" aria-label={`${brand || 'Bineesh'} home`}>
                 <img className="navbar-brand-mark" src="/Assets/image.png" alt="Bineesh Mathew" />
                 <span>
                   <strong>{brand || 'BINEESH'}</strong>
                   <small>AI / DATA / ML</small>
                 </span>
-              </a>
+                </a>
+                <button type="button" className="sidebar-close" onClick={onCloseSidebar} aria-label="Close sidebar" title="Close sidebar">
+                  <X size={17} aria-hidden="true" />
+                </button>
+              </div>
             {navItems.map(({ id, label, icon: Icon }) => (
               <a
                 key={id}

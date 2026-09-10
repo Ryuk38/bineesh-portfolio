@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ExternalLink } from 'lucide-react';
+import { ExternalLink, X } from 'lucide-react';
 
 function SectionHeading({ children, className = '' }) {
   return <h2 className={`section-heading ${className}`}>{children}</h2>;
@@ -9,6 +9,7 @@ export default function ProjectsSection({ projects }) {
   const githubUrl = 'https://github.com/Ryuk38?tab=repositories';
   const [featuredIndex, setFeaturedIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [selectedProject, setSelectedProject] = useState(null);
   const featuredProject = projects[featuredIndex];
   const projectIndex = projects
     .map((project, index) => ({ project, index }))
@@ -53,6 +54,11 @@ export default function ProjectsSection({ projects }) {
             target="_blank"
             rel="noreferrer"
             className={`project-featured accent-${featuredProject.accent} project-featured-enter`}
+            onClick={(event) => {
+              event.preventDefault();
+              setSelectedProject(featuredProject);
+              setIsPaused(true);
+            }}
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
             onFocus={() => setIsPaused(true)}
@@ -88,6 +94,11 @@ export default function ProjectsSection({ projects }) {
               target="_blank"
               rel="noreferrer"
               className="project-index-row"
+              onClick={(event) => {
+                event.preventDefault();
+                setSelectedProject(project);
+                setIsPaused(true);
+              }}
             >
               <span className="project-index-marker" aria-hidden="true" />
               <span className="project-index-icon"><ProjectIcon project={project} size={19} /></span>
@@ -99,7 +110,39 @@ export default function ProjectsSection({ projects }) {
             </a>
           ))}
         </div>
+
       </div>
+
+      {selectedProject ? (
+        <div className="project-detail-overlay" role="presentation" onClick={() => { setSelectedProject(null); setIsPaused(false); }}>
+          <article className={`project-detail-tile accent-${selectedProject.accent}`} role="dialog" aria-modal="true" aria-labelledby="project-detail-title" onClick={(event) => event.stopPropagation()}>
+            <div className="project-detail-heading">
+              <div className="project-detail-icon"><ProjectIcon project={selectedProject} size={24} /></div>
+              <div>
+                <span className="project-detail-kicker">PROJECT DETAILS</span>
+                <h3 id="project-detail-title">{selectedProject.title}</h3>
+              </div>
+              <button type="button" className="project-detail-close" onClick={() => { setSelectedProject(null); setIsPaused(false); }} aria-label="Close project details" title="Close project details">
+                <X size={18} aria-hidden="true" />
+              </button>
+            </div>
+            <p className="project-detail-description">{selectedProject.description}</p>
+            <div className="project-detail-tags">
+              {selectedProject.tags.map((tag) => <span key={tag}>{tag}</span>)}
+            </div>
+            <div className="project-detail-actions">
+              <a href={selectedProject.demo || selectedProject.link} target="_blank" rel="noreferrer" className="btn btn-primary">
+                <ExternalLink size={16} aria-hidden="true" />
+                Demo
+              </a>
+              <a href={selectedProject.source || selectedProject.link} target="_blank" rel="noreferrer" className="btn btn-outline">
+                <ExternalLink size={16} aria-hidden="true" />
+                Project Link
+              </a>
+            </div>
+          </article>
+        </div>
+      ) : null}
 
       <div className="projects-template-footer">
         <a href={githubUrl} target="_blank" rel="noreferrer" className="projects-template-linkout">
