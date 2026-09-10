@@ -1,6 +1,7 @@
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { EffectComposer, Bloom, Noise } from '@react-three/postprocessing';
 import StarField from './StarField';
+import NeuralField from './NeuralField';
 
 function ScrollCamera({ scrollY }) {
   const { camera } = useThree();
@@ -23,7 +24,8 @@ export default function Scene3D({ scrollY }) {
         <pointLight position={[5, 5, 5]} intensity={2.4} color="#6366F1" />
         <pointLight position={[-5, -5, 5]} intensity={1.8} color="#06B6D4" />
         
-        <StarField />
+        <StarField count={1200} />
+        <NeuralField />
         <ScrollCamera scrollY={scrollY} />
         
         <EffectComposer disableNormalPass>

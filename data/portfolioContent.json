@@ -1,6 +1,6 @@
 {
   "site": {
-    "brand": "JARVIS NEW",
+    "brand": "BINEESH",
     "ownerName": "Bineesh Mathew",
     "role": "AI · Data · ML"
   },
@@ -49,7 +49,7 @@
     "bio": "AI/DS engineer building ML pipelines, data products, and cloud-native apps that ship fast.",
     "location": "Mumbai, India",
     "availability": "Open to work",
-    "technicalFocus": "Focused on AI/ML, analytics, and production-ready full-stack builds with a cloud-first mindset.",
+    "technicalFocus": "Focused on building data-driven and intelligent applications using Python, machine learning, data analytics, process mining, and cloud-ready development. I enjoy turning complex data into practical systems and meaningful insights.",
     "locationCity": "Mumbai",
     "timezone": "GMT+5:30",
     "mapUrl": "https://www.openstreetmap.org/export/embed?bbox=72.7892303466797%2C18.995582736008494%2C72.94990539550783%2C19.11321822640885&layer=mapnik&marker=19.05441090856171%2C72.86956787109375",
@@ -81,23 +81,30 @@
     ],
     "education": [
       {
-        "id": "edu-degree",
-        "title": "BCA with Analytics",
-        "place": "Kristu Jayanti (Deemed to be University), Bengaluru",
-        "status": "CGPA - 8.64 ( Graduated)"
-      },
-      {
         "id": "education-3mm1qsm",
         "title": "M.Sc. Big Data Analytics",
         "place": "St. Xavier's College, Mumbai",
-        "status": "CGPA - 9.48 (Ongoing)",
+        "status": "CGPA — 9.48/10 · Ongoing",
+        "deleted": false
+      },
+      {
+        "id": "edu-degree",
+        "title": "BCA with Analytics",
+        "place": "Kristu Jayanti (Deemed to be University), Bengaluru",
+        "status": "CGPA — 8.64/10 · Graduated 2025"
+      },
+      {
+        "id": "education-jzxw1rq",
+        "title": "Class XII — Higher Secondary Education",
+        "place": "Marygiri English Medium School, Kannur",
+        "status": "81.2% · Graduated 2022",
         "deleted": false
       }
     ],
     "certifications": [
       {
         "id": "cert-tata",
-        "label": "GenAI Powered Data Analytics (TATA)"
+        "label": "AWS Academy Graduate – Cloud Foundations (2026)"
       },
       {
         "id": "cert-deloitte",
@@ -105,64 +112,86 @@
       },
       {
         "id": "cert-aws",
-        "label": "Solutions Architecture (AWS)"
+        "label": "NPTEL – Database Management Systems, Python"
       },
       {
         "id": "cert-git",
-        "label": "Git & GitHub Workshop (ACET)"
+        "label": "Qlik Sense – Business Analyst, Data Architect"
       },
       {
         "id": "cert-sql",
-        "label": "SQL and Relational Databases 101 (Cognitive Class)"
+        "label": "Celonis EMS – Rising Star: Technical & Automation "
       },
       {
         "id": "cert-prompt",
-        "label": "Prompt Engineering for Everyone (Cognitive Class)"
+        "label": " Google Academy – Advanced Google Analytics "
       },
       {
         "id": "cert-claude",
-        "label": "Claude 101 (Anthropic)"
+        "label": "ICT Academy – Learnathon (2022, 2023)"
       }
     ]
   },
+  "experience": [
+    {
+      "id": "experience-sojosephs-internship",
+      "period": "Jun 2024 - Jul 2024",
+      "title": "Software Developer Intern",
+      "organization": "St. Joseph's College",
+      "type": "Internship",
+      "location": "Calicut, India",
+      "responsibilities": [
+        "Designed an ETL pipeline to extract, transform, and load student records from MySQL into a PHP/JavaScript front-end, automating ID card generation and reducing manual data entry errors by 90%.",
+        "Optimized database queries and data transformation logic, streamlining real-time data retrieval for over 1,000+ student records and improving administrative reporting efficiency."
+      ],
+      "tags": [
+        "PHP",
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "SQL",
+        "MySQL",
+        "ETL",
+        "Data Processing",
+        "Database Management"
+      ]
+    }
+  ],
   "projects": [
     {
       "id": "project-resume-checker",
-      "title": "Resume-Checker",
+      "title": "WoodCorp Order-to-Cash Process Mining",
       "description": "A system to parse, analyze, and score resumes, showing skills in data extraction and analysis.",
       "tags": [
-        "Python",
-        "NLP"
+        "Celonis EMS · Excel · PowerPoint"
       ],
       "accent": "cyan",
-      "iconKey": "file-text",
-      "link": "https://github.com/ameya-jarvis-07/Resume-Checker",
+      "iconKey": "bar-chart",
+      "link": "https://github.com/Ryuk38/Resume-Checker",
       "image": ""
     },
     {
       "id": "project-crime-analysis",
-      "title": "Crime-Analysis-Demo",
+      "title": "Phishing URL Detection Model",
       "description": "Crime dataset analysis to identify patterns and trends using Python and visualization techniques.",
       "tags": [
-        "Data Viz",
-        "Pandas"
+        "Python · Pandas · Scikit-learn · LightGBM · Streamlit"
       ],
       "accent": "purple",
-      "iconKey": "bar-chart",
-      "link": "https://github.com/ameya-jarvis-07/Crime-Analysis-Demo",
+      "iconKey": "users",
+      "link": "https://github.com/Ryuk38/phishing-detector.git",
       "image": ""
     },
     {
       "id": "project-account-management",
-      "title": "Account-Management",
+      "title": "Music Catalog Valuation for IP-Backed Banking Loans",
       "description": "Full-stack CRUD app for user account management, demonstrating database and UI skills.",
       "tags": [
-        "Full Stack",
-        "SQL"
+        "Python · Pandas · XGBoost"
       ],
       "accent": "green",
       "iconKey": "users",
-      "link": "https://github.com/ameya-jarvis-07/Account-Management-System",
+      "link": "https://github.com/Ryuk38/Account-Management-System",
       "image": ""
     },
     {
@@ -175,8 +204,9 @@
       ],
       "accent": "yellow",
       "iconKey": "heart",
-      "link": "https://github.com/ameya-jarvis-07/Hunger-Bridge",
-      "image": ""
+      "link": "https://github.com/Ryuk38/Hunger-Bridge",
+      "image": "",
+      "deleted": true
     },
     {
       "id": "project-solar-explorer",
@@ -188,8 +218,9 @@
       ],
       "accent": "orange",
       "iconKey": "sun",
-      "link": "https://ameya-jarvis-07.github.io/Solar-Explorer/",
-      "image": ""
+      "link": "https://Ryuk38.github.io/Solar-Explorer/",
+      "image": "",
+      "deleted": true
     },
     {
       "id": "project-neuronet",
@@ -202,7 +233,35 @@
       "accent": "blue",
       "iconKey": "book-open",
       "link": "https://neuronet.co.in",
-      "image": ""
+      "image": "",
+      "deleted": true
+    },
+    {
+      "id": "project-wfz2lvm",
+      "title": "HPA Gene Expression Dashboard",
+      "description": "Interactive dashboard for exploring and analyzing Human Protein Atlas gene expression data using Python.",
+      "tags": [
+        "Python · Data Analysis · Visualization"
+      ],
+      "accent": "cyan",
+      "iconKey": "heart",
+      "link": "https://example.com",
+      "image": "",
+      "deleted": false
+    },
+    {
+      "id": "project-pw2ydaw",
+      "title": "Test",
+      "description": "Describe the project here.",
+      "tags": [
+        "Tag 1",
+        "Tag 2"
+      ],
+      "accent": "cyan",
+      "iconKey": "file-text",
+      "link": "https://example.com",
+      "image": "",
+      "deleted": false
     }
   ],
   "contact": {
@@ -216,6 +275,13 @@
         "title": "LinkedIn",
         "text": "bineesh-mathew",
         "href": "https://www.linkedin.com/in/bineesh38/"
+      },
+      {
+        "id": "contact-instagram",
+        "iconKey": "instagram",
+        "title": "Instagram",
+        "text": "38_b1neesh_",
+        "href": "https://www.instagram.com/38_b1neesh_/"
       },
       {
         "id": "contact-email",
@@ -236,7 +302,7 @@
         "id": "contact-location",
         "iconKey": "map-pin",
         "title": "Location",
-        "text": "Mumbai, India (421204)",
+        "text": "Mumbai, India ",
         "href": "#contact"
       }
     ],
@@ -260,6 +326,11 @@
         "id": "footer-about",
         "label": "About",
         "href": "#about"
+      },
+      {
+        "id": "footer-skills",
+        "label": "Skills",
+        "href": "#skills"
       },
       {
         "id": "footer-projects",
@@ -300,7 +371,7 @@
         "id": "social-linktree",
         "iconKey": "external-link",
         "label": "LinkTree",
-        "href": "https://linktr.ee/ameya_jarvis"
+        "href": "https://linktr.ee/bineesh38"
       }
     ]
   }

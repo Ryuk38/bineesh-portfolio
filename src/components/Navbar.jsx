@@ -1,8 +1,10 @@
-import { FileText, Home, Mail, Menu, User, Code2, X, Sun, Moon } from 'lucide-react';
+import { FileText, Home, Mail, Menu, User, Code2, X, Sun, Moon, BriefcaseBusiness, BrainCircuit } from 'lucide-react';
 
 const navItems = [
   { id: 'home', label: 'Home', icon: Home },
   { id: 'about', label: 'About', icon: User },
+  { id: 'skills', label: 'Skills', icon: BrainCircuit },
+  { id: 'experience', label: 'Experience', icon: BriefcaseBusiness },
   { id: 'projects', label: 'Projects', icon: Code2 },
   { id: 'contact', label: 'Contact', icon: Mail },
 ];
@@ -15,12 +17,21 @@ export default function Navbar({
   resumeUrl,
   theme,
   onToggleTheme,
+  brand,
+  hidden,
 }) {
   return (
     <>
-      <nav className="navbar" role="navigation" aria-label="Main navigation">
+      <nav className={`navbar${hidden ? ' navbar-hidden' : ''}`} role="navigation" aria-label="Main navigation">
         <div className="navbar-inner">
           <div className="navbar-pill" role="menubar" aria-label="Primary">
+              <a href="#home" className="navbar-brand" aria-label={`${brand || 'Bineesh'} home`}>
+                <span className="navbar-brand-mark">B</span>
+                <span>
+                  <strong>{brand || 'BINEESH'}</strong>
+                  <small>AI / DATA / ML</small>
+                </span>
+              </a>
             {navItems.map(({ id, label }) => (
               <a
                 key={id}

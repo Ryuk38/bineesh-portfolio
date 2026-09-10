@@ -34,6 +34,7 @@ export const SKILL_COLOR_OPTIONS = [
 
 export const CONTACT_ICON_OPTIONS = [
   { value: 'linkedin', label: 'LinkedIn' },
+  { value: 'instagram', label: 'Instagram' },
   { value: 'mail', label: 'Mail' },
   { value: 'phone', label: 'Phone' },
   { value: 'map-pin', label: 'Map Pin' },
@@ -57,6 +58,10 @@ function createCertification(id, label) {
   return { id, label };
 }
 
+function createExperience(id, period, title, organization, type, location, responsibilities, tags) {
+  return { id, period, title, organization, type, location, responsibilities, tags };
+}
+
 function createContactLink(id, iconKey, title, text, href) {
   return { id, iconKey, title, text, href };
 }
@@ -72,13 +77,13 @@ function createSocialLink(id, iconKey, label, href) {
 export function createDefaultPortfolioContent({ heroImage, resumeUrl }) {
   return {
     site: {
-      brand: 'JARVIS',
-      ownerName: 'Ameya Ramteke',
+      brand: 'BINEESH',
+      ownerName: 'Bineesh Mathew',
       role: 'AI · Data · Web',
     },
     hero: {
       eyebrow: 'AI & Data Science',
-      name: 'Ameya Ramteke',
+      name: 'Bineesh Mathew',
       title: 'AI & DS Engineer',
       subtitle: 'Building intelligent solutions with Python, Machine Learning, and Cloud Architecture.',
       image: heroImage,
@@ -100,12 +105,12 @@ export function createDefaultPortfolioContent({ heroImage, resumeUrl }) {
       ],
     },
     about: {
-      profileName: 'Ameya Ramteke',
+      profileName: 'Bineesh Mathew',
       profileTitle: 'AI & Data Science Engineer',
       bio: 'AI/DS engineer building ML pipelines, data products, and cloud-native apps that ship fast.',
       location: 'Nagpur, India',
       availability: 'Open to work',
-      technicalFocus: 'Focused on AI/ML, analytics, and production-ready full-stack builds with a cloud-first mindset.',
+      technicalFocus: 'Focused on building data-driven and intelligent applications using Python, machine learning, data analytics, process mining, and cloud-ready development. I enjoy turning complex data into practical systems and meaningful insights.',
       locationCity: 'Nagpur',
       timezone: 'GMT+5:30',
       mapUrl: 'https://www.openstreetmap.org/export/embed.html?bbox=79.0506%2C21.1200%2C79.1106%2C21.1800&layer=mapnik&marker=21.150037219633752%2C79.08060139999999',
@@ -116,8 +121,9 @@ export function createDefaultPortfolioContent({ heroImage, resumeUrl }) {
         createSkill('skill-cloud', 'Cloud Architecture', 75, 'yellow'),
       ],
       education: [
-        createEducation('edu-degree', 'B. Tech in AI & Data Science', 'Anjuman College of Engineering & Technology', 'Pursuing'),
-        createEducation('edu-school', 'HSC & SSC', 'Sandipani School / Essence International School', ''),
+        createEducation('edu-masters', 'M.Sc. Big Data Analytics', "St. Xavier's College, Mumbai", 'Ongoing'),
+        createEducation('edu-degree', 'BCA with Analytics', 'Kristu Jayanti (Deemed to be University), Bengaluru', 'CGPA — 8.64/10 · Graduated 2025'),
+        createEducation('edu-school', 'Class XII — Higher Secondary Education', 'Marygiri English Medium School', '81.2% · Graduated 2022'),
       ],
       certifications: [
         createCertification('cert-tata', 'GenAI Powered Data Analytics (TATA)'),
@@ -129,6 +135,21 @@ export function createDefaultPortfolioContent({ heroImage, resumeUrl }) {
         createCertification('cert-claude', 'Claude 101 (Anthropic)'),
       ],
     },
+    experience: [
+      createExperience(
+        'experience-sojosephs-internship',
+        'Jun 2024 - Jul 2024',
+        'Software Developer Intern',
+        "St. Joseph's College",
+        'Internship',
+        'Calicut, India',
+        [
+          'Designed an ETL pipeline to extract, transform, and load student records from MySQL into a PHP/JavaScript front-end, automating ID card generation and reducing manual data entry errors by 90%.',
+          'Optimized database queries and data transformation logic, streamlining real-time data retrieval for over 1,000+ student records and improving administrative reporting efficiency.',
+        ],
+        ['PHP', 'HTML', 'CSS', 'JavaScript', 'SQL', 'MySQL', 'ETL', 'Data Processing', 'Database Management'],
+      ),
+    ],
     projects: [
       createProject(
         'project-resume-checker',
@@ -137,7 +158,7 @@ export function createDefaultPortfolioContent({ heroImage, resumeUrl }) {
         ['Python', 'NLP'],
         'cyan',
         'file-text',
-        'https://github.com/ameya-jarvis-07/Resume-Checker',
+        'https://github.com/Ryuk38/Resume-Checker',
       ),
       createProject(
         'project-crime-analysis',
@@ -146,7 +167,7 @@ export function createDefaultPortfolioContent({ heroImage, resumeUrl }) {
         ['Data Viz', 'Pandas'],
         'purple',
         'bar-chart',
-        'https://github.com/ameya-jarvis-07/Crime-Analysis-Demo',
+        'https://github.com/Ryuk38/Crime-Analysis-Demo',
       ),
       createProject(
         'project-account-management',
@@ -155,7 +176,7 @@ export function createDefaultPortfolioContent({ heroImage, resumeUrl }) {
         ['Full Stack', 'SQL'],
         'green',
         'users',
-        'https://github.com/ameya-jarvis-07/Account-Management-System',
+        'https://github.com/Ryuk38/Account-Management-System',
       ),
       createProject(
         'project-hunger-bridge',
@@ -164,7 +185,7 @@ export function createDefaultPortfolioContent({ heroImage, resumeUrl }) {
         ['Social Good', 'Web App'],
         'yellow',
         'heart',
-        'https://github.com/ameya-jarvis-07/Hunger-Bridge',
+        'https://github.com/Ryuk38/Hunger-Bridge',
       ),
       createProject(
         'project-solar-explorer',
@@ -173,7 +194,7 @@ export function createDefaultPortfolioContent({ heroImage, resumeUrl }) {
         ['3D Graphics', 'Web Dev'],
         'orange',
         'sun',
-        'https://ameya-jarvis-07.github.io/Solar-Explorer/',
+        'https://Ryuk38.github.io/Solar-Explorer/',
       ),
       createProject(
         'project-neuronet',
@@ -190,8 +211,9 @@ export function createDefaultPortfolioContent({ heroImage, resumeUrl }) {
       title: 'Get In Touch',
       subtitle: 'Have a project in mind or looking for a collaborator? Send a message and I’ll reply soon.',
       links: [
-        createContactLink('contact-linkedin', 'linkedin', 'LinkedIn', 'ameya-ramteke', 'https://www.linkedin.com/in/ameya-ramteke'),
-        createContactLink('contact-email', 'mail', 'Email Me', 'ameyaramteke07.work@gmail.com', 'mailto:ameyaramteke07.work@gmail.com'),
+        createContactLink('contact-linkedin', 'linkedin', 'LinkedIn', 'bineesh38', 'https://www.linkedin.com/in/bineesh38/'),
+        createContactLink('contact-instagram', 'instagram', 'Instagram', '38_b1neesh_', 'https://www.instagram.com/38_b1neesh_/'),
+        createContactLink('contact-email', 'mail', 'Email Me', 'c380bineesh@gmail.com', 'mailto:c380bineesh@gmail.com'),
         createContactLink('contact-phone', 'phone', 'Call Me', '+91 9422651580', 'tel:+919422651580'),
         createContactLink('contact-location', 'map-pin', 'Location', 'Nagpur, India (440023)', '#contact'),
       ],
@@ -202,21 +224,23 @@ export function createDefaultPortfolioContent({ heroImage, resumeUrl }) {
       },
     },
     footer: {
-      brand: 'JARVIS',
-      name: 'Ameya Ramteke',
+      brand: 'BINEESH',
+      name: 'Bineesh Mathew',
       tagline: 'AI · Data · Web',
       quickLinks: [
         createFooterLink('footer-home', 'Home', '#home'),
         createFooterLink('footer-about', 'About', '#about'),
+        createFooterLink('footer-skills', 'Skills', '#skills'),
+        createFooterLink('footer-experience', 'Experience', '#experience'),
         createFooterLink('footer-projects', 'Projects', '#projects'),
         createFooterLink('footer-contact', 'Contact', '#contact'),
         createFooterLink('footer-resume', 'Resume', resumeUrl),
       ],
       socialLinks: [
-        createSocialLink('social-email', 'mail', 'Email', 'mailto:ameyaramteke07.work@gmail.com'),
-        createSocialLink('social-github', 'github', 'GitHub', 'https://github.com/ameya-jarvis-07'),
-        createSocialLink('social-linkedin', 'linkedin', 'LinkedIn', 'https://www.linkedin.com/in/ameya-jarvis-07/'),
-        createSocialLink('social-linktree', 'external-link', 'LinkTree', 'https://linktr.ee/ameya_jarvis'),
+        createSocialLink('social-email', 'mail', 'Email', 'mailto:c380bineesh@gmail.com'),
+        createSocialLink('social-github', 'github', 'GitHub', 'https://github.com/Ryuk38'),
+        createSocialLink('social-linkedin', 'linkedin', 'LinkedIn', 'https://www.linkedin.com/in/bineesh38/'),
+        createSocialLink('social-linktree', 'external-link', 'LinkTree', 'https://linktr.ee/bineesh38'),
       ],
     },
   };

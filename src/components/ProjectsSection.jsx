@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { ExternalLink } from 'lucide-react';
 
 function SectionHeading({ children, className = '' }) {
@@ -5,7 +6,28 @@ function SectionHeading({ children, className = '' }) {
 }
 
 export default function ProjectsSection({ projects }) {
-  const githubUrl = 'https://github.com/ameya-jarvis-07?tab=repositories';
+  const githubUrl = 'https://github.com/Ryuk38?tab=repositories';
+  const [featuredIndex, setFeaturedIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const featuredProject = projects[featuredIndex];
+  const projectIndex = projects
+    .map((project, index) => ({ project, index }))
+    .filter(({ index }) => index !== featuredIndex);
+
+  useEffect(() => {
+    if (projects.length < 2 || isPaused) return undefined;
+
+    const rotation = window.setInterval(() => {
+      setFeaturedIndex((currentIndex) => (currentIndex + 1) % projects.length);
+    }, 5000);
+
+    return () => window.clearInterval(rotation);
+  }, [isPaused, projects.length]);
+
+  const ProjectIcon = ({ project, size = 22 }) => {
+    const Icon = project.icon;
+    return <Icon size={size} aria-hidden="true" />;
+  };
 
   return (
     <section id="projects" className="section projects-template">
@@ -23,49 +45,60 @@ export default function ProjectsSection({ projects }) {
         </p>
       </div>
 
-      <div className="projects-template-grid">
-        {projects.map((project, index) => {
-          const Icon = project.icon;
-          const delayClass = index < 6 ? `delay-${index + 1}` : '';
+      <div className="projects-showcase">
+        {featuredProject ? (
+          <a
+            key={featuredProject.id || featuredProject.title}
+            href={featuredProject.link}
+            target="_blank"
+            rel="noreferrer"
+            className={`project-featured accent-${featuredProject.accent} project-featured-enter`}
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+            onFocus={() => setIsPaused(true)}
+            onBlur={() => setIsPaused(false)}
+          >
+            <div className="project-featured-watermark" aria-hidden="true" />
+            <div className="project-featured-topline">
+              <span>SELECTED BUILD</span>
+              <ExternalLink size={18} />
+            </div>
+            <div className="project-featured-icon">
+              <ProjectIcon project={featuredProject} size={28} />
+            </div>
+            <h3>{featuredProject.title}</h3>
+            <p>{featuredProject.description}</p>
+            <div className="project-index-tags">
+              {featuredProject.tags.map((tag) => <span key={tag}>{tag}</span>)}
+            </div>
+            <span className="project-featured-cta">Open project <span aria-hidden="true">↗</span></span>
+            <span className={`project-featured-progress${isPaused ? ' is-paused' : ''}`} aria-hidden="true" />
+          </a>
+        ) : null}
 
-          return (
+        <div className="project-index" aria-label="Other projects">
+          <div className="project-index-heading">
+            <span>PROJECT INDEX</span>
+            <span>PROJECT COLLECTION</span>
+          </div>
+          {projectIndex.map(({ project }) => (
             <a
               key={project.title}
               href={project.link}
               target="_blank"
               rel="noreferrer"
-              className="project-template-link"
+              className="project-index-row"
             >
-              <article
-                className={`project-template-card accent-${project.accent} card-3d reveal-up ${delayClass}`}
-              >
-                <div className="project-template-top">
-                  <div className="project-template-icon">
-                    <Icon size={22} />
-                  </div>
-                  <ExternalLink size={18} className="project-template-external" />
-                </div>
-
-                {project.image ? (
-                  <div className="project-template-media" aria-hidden="true">
-                    <img src={project.image} alt={`Screenshot of ${project.title}`} loading="lazy" />
-                  </div>
-                ) : null}
-
-                <h3 className="project-template-title-text">{project.title}</h3>
-                <p className="project-template-desc">{project.description}</p>
-
-                <div className="project-template-tags">
-                  {project.tags.map((tag) => (
-                    <span key={tag} className="project-template-tag">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </article>
+              <span className="project-index-marker" aria-hidden="true" />
+              <span className="project-index-icon"><ProjectIcon project={project} size={19} /></span>
+              <span className="project-index-copy">
+                <strong>{project.title}</strong>
+                <small>{project.tags.join(' · ')}</small>
+              </span>
+              <ExternalLink size={16} className="project-index-arrow" />
             </a>
-          );
-        })}
+          ))}
+        </div>
       </div>
 
       <div className="projects-template-footer">

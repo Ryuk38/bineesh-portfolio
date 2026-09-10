@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
-import { Linkedin, Mail, Phone, MapPin, Github, ExternalLink } from 'lucide-react';
+import { Linkedin, Mail, Phone, MapPin, Github, Instagram, ExternalLink } from 'lucide-react';
 
 function SectionHeading({ children, className = '' }) {
   return <h2 className={`section-heading ${className}`}>{children}</h2>;
@@ -12,6 +12,7 @@ const CONTACT_ICON_MAP = {
   phone: Phone,
   'map-pin': MapPin,
   github: Github,
+  instagram: Instagram,
   'external-link': ExternalLink,
 };
 
@@ -21,6 +22,7 @@ const ICON_COLOR_MAP = {
   phone: 'purple',
   'map-pin': 'pink',
   github: 'cyan',
+  instagram: 'purple',
   'external-link': 'purple',
 };
 

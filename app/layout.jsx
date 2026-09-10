@@ -48,8 +48,8 @@ const jsonLd = {
   "jobTitle": "AI & Data Science Engineer",
   "url": "https://ameyajarvis.qzz.io",
   "sameAs": [
-    "https://github.com/ameya-jarvis-07",
-    "https://linkedin.com/in/ameya-ramteke"
+    "https://github.com/Ryuk38",
+    "https://www.linkedin.com/in/bineesh38/"
   ],
   "knowsAbout": [
     "Artificial Intelligence",
@@ -107,7 +107,6 @@ export default function RootLayout({ children }) {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link rel="alternate icon" href="/Assets/header.png" />
         
         {/* Structured Data */}
         <script

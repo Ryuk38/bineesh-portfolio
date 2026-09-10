@@ -25,6 +25,7 @@ export default function DashboardWrapper({ initialContent }) {
         site: { ...defaults.site, ...initialContent.site },
         hero: { ...defaults.hero, ...initialContent.hero },
         about: { ...defaults.about, ...initialContent.about },
+        experience: initialContent.experience || defaults.experience,
         projects: initialContent.projects || defaults.projects,
         contact: { ...defaults.contact, ...initialContent.contact },
         footer: { ...defaults.footer, ...initialContent.footer }

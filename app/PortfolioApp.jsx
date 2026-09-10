@@ -14,9 +14,13 @@ import dynamic from 'next/dynamic';
 import Navbar from '../src/components/Navbar';
 import HeroSection from '../src/components/HeroSection';
 import AboutSection from '../src/components/AboutSection';
+import SkillsSection from '../src/components/SkillsSection';
+import ExperienceSection from '../src/components/ExperienceSection';
 import ProjectsSection from '../src/components/ProjectsSection';
 import ContactSection from '../src/components/ContactSection';
 import Footer from '../src/components/Footer';
+import CustomCursor from '../src/components/CustomCursor';
+import PortfolioSignals from '../src/components/PortfolioSignals';
 import useScrollAnimations from '../src/hooks/useScrollAnimations';
 
 const Scene3D = dynamic(() => import('../src/components/Scene3D'), {
@@ -64,6 +68,7 @@ export default function PortfolioApp({ initialContent }) {
         site: { ...defaults.site, ...initialContent.site },
         hero: { ...defaults.hero, ...initialContent.hero },
         about: { ...defaults.about, ...initialContent.about },
+        experience: initialContent.experience || defaults.experience,
         projects: initialContent.projects || defaults.projects,
         contact: { ...defaults.contact, ...initialContent.contact },
         footer: { ...defaults.footer, ...initialContent.footer }
@@ -88,6 +93,9 @@ export default function PortfolioApp({ initialContent }) {
   const [activeSection, setActiveSection] = useState('home');
   const [scrollY, setScrollY] = useState(0);
   const [theme, setTheme] = useState('light');
+  const [themeTransitioning, setThemeTransitioning] = useState(false);
+  const [navHidden, setNavHidden] = useState(false);
+  const lastScrollYRef = useRef(0);
 
   const mainRef = useRef(null);
 
@@ -97,7 +105,12 @@ export default function PortfolioApp({ initialContent }) {
   /* ── Scroll tracking ── */
   useEffect(() => {
     const handleScroll = () => {
-      setScrollY(window.scrollY);
+      const currentScrollY = window.scrollY;
+      const scrollingDown = currentScrollY > lastScrollYRef.current;
+      setScrollY(currentScrollY);
+      setNavHidden(currentScrollY > 100 && scrollingDown);
+      if (currentScrollY <= 20) setNavHidden(false);
+      lastScrollYRef.current = currentScrollY;
 
       const sections = document.querySelectorAll('section[id]');
       let current = 'home';
@@ -119,7 +132,9 @@ export default function PortfolioApp({ initialContent }) {
   }, [theme]);
 
   const toggleTheme = useCallback(() => {
+    setThemeTransitioning(true);
     setTheme((t) => (t === 'dark' ? 'light' : 'dark'));
+    window.setTimeout(() => setThemeTransitioning(false), 900);
   }, []);
 
   /* ── Filters for active (non-soft-deleted) items ── */
@@ -135,6 +150,7 @@ export default function PortfolioApp({ initialContent }) {
     .map((c) => c.label);
 
   const activeProjects = enrichProjects((content.projects || []).filter(p => !p.deleted));
+  const activeExperience = (content.experience || []).filter(item => !item.deleted);
   
   const activeContactLinks = (content.contact.links || []).filter(l => !l.deleted);
   
@@ -144,16 +160,28 @@ export default function PortfolioApp({ initialContent }) {
   /* ── Render ── */
   return (
     <>
+      <CustomCursor />
+      {themeTransitioning ? (
+        <div className="meteor-transition" aria-hidden="true">
+          <span className="meteor meteor-one" />
+          <span className="meteor meteor-two" />
+          <span className="meteor meteor-three" />
+          <span className="meteor meteor-four" />
+          <span className="meteor meteor-five" />
+        </div>
+      ) : null}
       {/* 3D background */}
       <Scene3D scrollY={scrollY} />
+      <PortfolioSignals />
 
       {/* Portfolio */}
-      <div className="app-container" ref={mainRef}>
+      <div className={`app-container${navHidden ? ' nav-collapsed' : ''}`} ref={mainRef}>
         <Navbar
           activeSection={activeSection}
           menuOpen={menuOpen}
           onToggleMenu={() => setMenuOpen((o) => !o)}
           onCloseMenu={() => setMenuOpen(false)}
+          hidden={navHidden}
           resumeUrl={content.hero.resumeUrl || resumeUrl}
           theme={theme}
           onToggleTheme={toggleTheme}
@@ -183,6 +211,8 @@ export default function PortfolioApp({ initialContent }) {
             certifications={activeCertifications}
             heroImage={content.hero.image || heroImage}
           />
+          <SkillsSection />
+          <ExperienceSection experience={activeExperience} />
           <ProjectsSection projects={activeProjects} />
           <ContactSection 
             contact={{

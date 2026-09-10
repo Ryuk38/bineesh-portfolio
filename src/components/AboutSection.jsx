@@ -1,3 +1,5 @@
+import { Award, GraduationCap } from 'lucide-react';
+
 function SectionHeading({ children, className = '' }) {
   return <h2 className={`section-heading ${className}`}>{children}</h2>;
 }
@@ -47,12 +49,15 @@ export default function AboutSection({ about, skillBars, education, certificatio
 
         <article className="about-tile about-tile-education glass card-3d reveal-up">
           <h3 className="about-tile-heading">Education</h3>
-          <ul className="about-list">
+          <ul className="about-list education-scroller">
             {education.map((item) => (
-              <li key={item.id || item.title}>
+              <li key={item.id || item.title} className="education-card">
+                <span className="education-icon" aria-hidden="true"><GraduationCap size={16} /></span>
+                <div className="education-card-content">
                 <span className="about-list-title">{item.title}</span>
                 <span className="about-list-subtitle">{item.place}</span>
                 {item.status ? <span className="about-list-status">{item.status}</span> : null}
+                </div>
               </li>
             ))}
           </ul>
@@ -75,9 +80,10 @@ export default function AboutSection({ about, skillBars, education, certificatio
 
         <article className="about-tile about-tile-mindset glass card-3d reveal-left">
           <h3 className="about-tile-heading">Certifications</h3>
-          <ul className="about-list about-list-compact">
+          <ul className="about-list about-list-compact certification-scroller">
             {certifications.map((item) => (
-              <li key={item}>
+              <li key={item} className="certification-card">
+                <span className="certification-icon" aria-hidden="true"><Award size={16} /></span>
                 <span className="about-list-title">{item}</span>
               </li>
             ))}
