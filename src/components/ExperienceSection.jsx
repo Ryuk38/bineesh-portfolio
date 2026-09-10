@@ -4,10 +4,14 @@ export default function ExperienceSection({ experience }) {
   return (
     <section id="experience" className="section experience-template">
       <div className="experience-template-header">
+        <p className="experience-template-eyebrow">CAREER TIMELINE</p>
         <h2 className="section-heading experience-template-title">
           <span className="experience-title-work">Work </span>
           <span className="text-gradient-shimmer">Experience</span>
         </h2>
+        <p className="experience-template-subtitle">
+          A record of roles, responsibilities, and systems shaped through real-world work.
+        </p>
       </div>
 
       <div className="experience-list">

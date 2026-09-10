@@ -26,23 +26,25 @@ export default function Navbar({
         <div className="navbar-inner">
           <div className="navbar-pill" role="menubar" aria-label="Primary">
               <a href="#home" className="navbar-brand" aria-label={`${brand || 'Bineesh'} home`}>
-                <span className="navbar-brand-mark">B</span>
+                <img className="navbar-brand-mark" src="/Assets/image.png" alt="Bineesh Mathew" />
                 <span>
                   <strong>{brand || 'BINEESH'}</strong>
                   <small>AI / DATA / ML</small>
                 </span>
               </a>
-            {navItems.map(({ id, label }) => (
+            {navItems.map(({ id, label, icon: Icon }) => (
               <a
                 key={id}
                 href={`#${id}`}
                 className={`nav-pill-link${activeSection === id ? ' active' : ''}`}
                 aria-current={activeSection === id ? 'page' : undefined}
               >
+                <Icon className="nav-pill-link__icon" aria-hidden="true" />
                 {label}
               </a>
             ))}
             <a href={resumeUrl} target="_blank" rel="noreferrer" className="nav-pill-link nav-pill-action">
+              <FileText className="nav-pill-link__icon" aria-hidden="true" />
               Resume
             </a>
           </div>

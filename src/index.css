@@ -461,7 +461,7 @@ input, textarea {
 .main-content {
   padding-top: 72px;
   will-change: margin-left;
-  transition: margin-left 0.65s var(--ease-out), padding 0.4s ease;
+  transition: margin-left 0.85s var(--ease-smooth), padding 0.4s ease;
 }
 
 /* ============================================================
@@ -534,11 +534,13 @@ input, textarea {
 
 .navbar {
   will-change: transform;
-  transition: transform 0.65s var(--ease-out), padding 0.4s ease, background-color 0.4s ease;
+  transition: transform 0.85s var(--ease-smooth), opacity 0.55s ease, filter 0.55s ease, padding 0.4s ease, background-color 0.4s ease;
 }
 
 .navbar-hidden {
   transform: translateY(-115%);
+  opacity: 0;
+  pointer-events: none;
 }
 
 .navbar-inner {
@@ -577,6 +579,17 @@ input, textarea {
   backdrop-filter: blur(16px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
   box-shadow: var(--shadow-sm);
+}
+
+.navbar-brand-mark {
+  width: 2.35rem;
+  height: 2.35rem;
+  flex: 0 0 auto;
+  object-fit: cover;
+  object-position: center top;
+  border: 2px solid var(--olive);
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(var(--olive-rgb), 0.22);
 }
 
 .navbar-actions {
@@ -1833,6 +1846,15 @@ input, textarea {
   text-align: center;
 }
 
+.experience-template-eyebrow {
+  margin-bottom: 0.45rem;
+  color: var(--olive-mid);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+}
+
 .experience-template-title {
   margin-top: 0.7rem;
   margin-bottom: 0;
@@ -1845,6 +1867,14 @@ input, textarea {
 .experience-template-title::after {
   background: linear-gradient(90deg, #6366f1, #8b5cf6);
   box-shadow: 0 0 12px rgba(99, 102, 241, 0.3);
+}
+
+.experience-template-subtitle {
+  max-width: 620px;
+  margin: 1.8rem auto 0;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  line-height: 1.7;
 }
 
 .experience-list {
@@ -3356,27 +3386,34 @@ input, textarea {
    AI WORKSPACE LAYOUT
    ============================================================ */
 @media (min-width: 1100px) {
+  :root {
+    --sidebar-width: clamp(240px, 18vw, 280px);
+  }
+
   .app-container.nav-collapsed .main-content {
     margin-left: 0;
   }
 
   .navbar-hidden {
-    transform: translateX(-115%);
+    transform: translateX(-18px) scale(0.98);
+    opacity: 0;
+    filter: blur(4px);
   }
 
   .navbar {
     right: auto;
-    width: 248px;
-    min-height: 100vh;
-    padding: 1.5rem 1rem;
-    border-right: 1px solid rgba(99, 102, 241, 0.14);
-    background: linear-gradient(180deg, rgba(242, 245, 255, 0.82), rgba(231, 234, 247, 0.48));
-    backdrop-filter: blur(20px);
+    width: var(--sidebar-width);
+    height: 100dvh;
+    min-height: 0;
+    padding: 1.15rem 0.9rem;
+    border-right: 1px solid rgba(99, 102, 241, 0.16);
+    background: linear-gradient(180deg, rgba(248, 250, 255, 0.92), rgba(231, 234, 247, 0.7));
+    backdrop-filter: blur(24px) saturate(130%);
     -webkit-backdrop-filter: blur(20px);
   }
 
   .navbar-inner {
-    height: calc(100vh - 3rem);
+    height: calc(100dvh - 2.3rem);
     max-width: none;
     padding: 0;
     flex-direction: column;
@@ -3385,22 +3422,24 @@ input, textarea {
   }
 
   .navbar-pill {
-    flex: 1;
+    flex: 1 1 auto;
     align-items: stretch;
     flex-direction: column;
     gap: 0.35rem;
-    padding: 0.7rem;
-    border-radius: var(--r-lg);
-    background: rgba(255, 255, 255, 0.38);
-    box-shadow: none;
+    padding: 0.85rem 0.7rem;
+    padding-bottom: 4.8rem;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.54);
+    border: 1px solid rgba(99, 102, 241, 0.12);
+    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
   }
 
   .navbar-brand {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    margin: 0.25rem 0 1.8rem;
-    padding: 0.55rem 0.5rem 1.25rem;
+    gap: 0.7rem;
+    margin: 0.1rem 0 1.25rem;
+    padding: 0.45rem 0.4rem 1.1rem;
     border-bottom: 1px solid rgba(99, 102, 241, 0.14);
   }
 
@@ -3410,14 +3449,11 @@ input, textarea {
     justify-content: center;
     width: 2.35rem;
     height: 2.35rem;
-    border: 1px solid rgba(56, 189, 248, 0.6);
-    border-radius: 10px;
-    background: linear-gradient(135deg, #6366f1, #38bdf8);
-    color: white;
-    font-family: var(--font-mono);
-    font-size: 1.1rem;
-    font-weight: 800;
-    box-shadow: 0 0 18px rgba(99, 102, 241, 0.25);
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center top;
+    box-shadow: 0 5px 16px rgba(var(--olive-rgb), 0.28);
   }
 
   .navbar-brand span:last-child {
@@ -3442,44 +3478,62 @@ input, textarea {
   .nav-pill-link {
     display: flex;
     align-items: center;
-    min-height: 2.65rem;
-    padding: 0.65rem 0.8rem;
-    border-radius: var(--r-sm);
-    font-size: 0.67rem;
+    min-height: 2.75rem;
+    padding: 0.65rem 0.75rem;
+    border-radius: 10px;
+    font-size: 0.66rem;
+    letter-spacing: 0.1em;
   }
 
   .nav-pill-link::before {
-    content: '↳';
-    margin-right: 0.55rem;
+    display: none;
+  }
+
+  .nav-pill-link__icon {
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.6rem;
     color: var(--color-text-muted);
-    opacity: 0.6;
+    stroke-width: 1.8;
+    opacity: 0.72;
   }
 
   .nav-pill-link.active {
-    background: rgba(99, 102, 241, 0.1);
+    background: rgba(99, 102, 241, 0.12);
     color: var(--olive-mid);
+    box-shadow: inset 3px 0 0 var(--olive), 0 5px 12px rgba(var(--olive-rgb), 0.08);
+  }
+
+  .nav-pill-link.active .nav-pill-link__icon,
+  .nav-pill-link:hover .nav-pill-link__icon {
+    color: var(--olive);
+    opacity: 1;
   }
 
   .nav-pill-link.active::before {
-    color: #38bdf8;
+    color: var(--olive);
     opacity: 1;
   }
 
   .nav-pill-action {
     margin-top: auto;
     border: 1px solid rgba(99, 102, 241, 0.22);
+    background: rgba(255, 255, 255, 0.45);
   }
 
   .navbar-actions {
-    position: static;
-    justify-content: space-between;
-    padding: 1rem 0.35rem 0;
+    position: absolute;
+    right: 0.35rem;
+    bottom: 0.7rem;
+    left: 0.35rem;
+    justify-content: flex-start;
+    padding: 0;
   }
 
   .main-content {
-    min-height: 100vh;
+    min-height: 100dvh;
     padding-top: 0;
-    margin-left: 248px;
+    margin-left: var(--sidebar-width);
   }
 
   .section {
