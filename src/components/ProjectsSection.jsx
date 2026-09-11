@@ -69,9 +69,6 @@ export default function ProjectsSection({ projects }) {
               <span>SELECTED BUILD</span>
               <ExternalLink size={18} />
             </div>
-            <div className="project-featured-icon">
-              <ProjectIcon project={featuredProject} size={28} />
-            </div>
             <h3>{featuredProject.title}</h3>
             <p>{featuredProject.description}</p>
             <div className="project-index-tags">
@@ -84,7 +81,7 @@ export default function ProjectsSection({ projects }) {
 
         <div className="project-index" aria-label="Other projects">
           <div className="project-index-heading">
-            <span>PROJECT INDEX</span>
+            <span>OTHER PROJECTS</span>
             <span>PROJECT COLLECTION</span>
           </div>
           {projectIndex.map(({ project }) => (

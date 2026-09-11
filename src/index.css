@@ -1,6 +1,6 @@
 /* ============================================================
-   COSMIC OBSIDIAN × ELECTRIC INDIGO — 3D Glassmorphism System
-   Dual-tone: Ice Slate #F8FAFC · Electric Indigo #6366F1 · Cyan #06B6D4
+  BLUE HORIZON — Responsive Glassmorphism System
+  Dual-tone: Cloud White #F6F8FC · Signal Blue #2563EB · Cyan #0891B2
    ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
@@ -10,17 +10,17 @@
    ============================================================ */
 :root {
   /* Core palette (Light Mode) */
-  --oat:          #F2F5FF;
+  --oat:          #F6F8FC;
   --oat-light:    #FFFFFF;
-  --oat-dark:     #E7EAF7;
-  --oat-deep:     #D6DBF0;
-  --olive:        #5B5FEF;
-  --olive-rgb:    99, 102, 241;
-  --olive-mid:    #4F46E5;
-  --olive-light:  #818CF8;
-  --olive-dark:   #3730A3;
-  --bark:         #0F172A;
-  --sand:         #64748B;
+  --oat-dark:     #E8EEF7;
+  --oat-deep:     #D5E0EF;
+  --olive:        #2563EB;
+  --olive-rgb:    37, 99, 235;
+  --olive-mid:    #1D4ED8;
+  --olive-light:  #60A5FA;
+  --olive-dark:   #1E3A8A;
+  --bark:         #0F1B2D;
+  --sand:         #5B6B80;
   --cream:        #FFFFFF;
 
   /* Semantic */
@@ -29,17 +29,17 @@
   --color-surface:    rgba(255, 255, 255, 0.66);
   --color-primary:    var(--olive);
   --color-text:       var(--bark);
-  --color-text-mid:   #334155;
+  --color-text-mid:   #34465C;
   --color-text-muted: var(--sand);
-  --color-border:     rgba(91, 95, 239, 0.2);
-  --color-accent:     #06B6D4;
+  --color-border:     rgba(37, 99, 235, 0.2);
+  --color-accent:     #0891B2;
 
   /* Shadows */
   --shadow-xs:   0 1px 4px rgba(15, 23, 42, 0.06);
   --shadow-sm:   0 2px 12px rgba(15, 23, 42, 0.08);
-  --shadow-md:   0 8px 32px rgba(99, 102, 241, 0.12);
+  --shadow-md:   0 8px 32px rgba(37, 99, 235, 0.12);
   --shadow-lg:   0 24px 64px rgba(15, 23, 42, 0.14);
-  --shadow-glow: 0 0 48px rgba(99, 102, 241, 0.3);
+  --shadow-glow: 0 0 48px rgba(37, 99, 235, 0.3);
 
   /* Typography */
   --font-body: 'Sora', system-ui, -apple-system, sans-serif;
@@ -74,46 +74,48 @@
   --accent-hover: var(--olive-light);
   --card: var(--color-surface);
   --card-border: var(--color-border);
-  --gradient-start: #6366F1;
-  --gradient-end: #06B6D4;
+  --gradient-start: #2563EB;
+  --gradient-end: #0891B2;
 
   /* Background layers & textures */
-  --bg-grad-1: radial-gradient(ellipse 80% 50% at 15% -8%, rgba(99, 102, 241, 0.14) 0%, transparent 70%);
-  --bg-grad-2: radial-gradient(ellipse 60% 45% at 85% 105%, rgba(6, 182, 212, 0.1) 0%, transparent 70%);
+  --bg-grad-1: radial-gradient(ellipse 80% 50% at 15% -8%, rgba(37, 99, 235, 0.12) 0%, transparent 70%);
+  --bg-grad-2: radial-gradient(ellipse 60% 45% at 85% 105%, rgba(8, 145, 178, 0.1) 0%, transparent 70%);
   --bg-grid: linear-gradient(115deg, rgba(99, 102, 241, 0.035) 1px, transparent 1px), linear-gradient(25deg, rgba(56, 189, 248, 0.028) 1px, transparent 1px);
   --bg-texture: radial-gradient(circle at 1px 1px, rgba(99, 102, 241, 0.13) 1.2px, transparent 0);
+  --bg-stars: none;
   --bg-texture-size: 28px 28px;
   --grain-opacity: 0.025;
 }
 
 :root[data-theme='dark'] {
-  --oat:          #090D16;
-  --oat-light:    #0F172A;
-  --oat-dark:     #1E293B;
-  --oat-deep:     #334155;
-  --bark:         #F8FAFC;
-  --sand:         #94A3B8;
-  --cream:        #090D16;
+  --oat:          #07111F;
+  --oat-light:    #0D1B2E;
+  --oat-dark:     #142A42;
+  --oat-deep:     #234363;
+  --bark:         #F2F7FC;
+  --sand:         #91A8BF;
+  --cream:        #07111F;
 
-  --color-bg:         #090D16;
-  --color-bg-alt:     #0F172A;
-  --color-surface:    rgba(15, 23, 42, 0.78);
-  --color-text:       #F8FAFC;
-  --color-text-mid:   #E2E8F0;
-  --color-text-muted: #94A3B8;
-  --color-border:     rgba(99, 102, 241, 0.22);
+  --color-bg:         #07111F;
+  --color-bg-alt:     #0D1B2E;
+  --color-surface:    rgba(13, 27, 46, 0.82);
+  --color-text:       #F2F7FC;
+  --color-text-mid:   #D7E4F0;
+  --color-text-muted: #91A8BF;
+  --color-border:     rgba(96, 165, 250, 0.24);
 
   --shadow-xs:   0 1px 4px rgba(0, 0, 0, 0.4);
   --shadow-sm:   0 2px 12px rgba(0, 0, 0, 0.45);
   --shadow-md:   0 8px 32px rgba(0, 0, 0, 0.55);
   --shadow-lg:   0 24px 64px rgba(0, 0, 0, 0.65);
 
-  --bg-grad-1: radial-gradient(ellipse 80% 50% at 15% -8%, rgba(99, 102, 241, 0.18) 0%, transparent 70%);
-  --bg-grad-2: radial-gradient(ellipse 60% 45% at 85% 105%, rgba(6, 182, 212, 0.14) 0%, transparent 70%);
-  --bg-grid: linear-gradient(115deg, rgba(129, 140, 248, 0.04) 1px, transparent 1px), linear-gradient(25deg, rgba(56, 189, 248, 0.025) 1px, transparent 1px);
-  --bg-texture: radial-gradient(circle at 1px 1px, rgba(99, 102, 241, 0.09) 1px, transparent 0);
-  --bg-texture-size: 32px 32px;
-  --grain-opacity: 0.035;
+  --bg-grad-1: radial-gradient(ellipse 80% 50% at 15% -8%, rgba(37, 99, 235, 0.2) 0%, transparent 70%);
+  --bg-grad-2: radial-gradient(ellipse 60% 45% at 85% 105%, rgba(8, 145, 178, 0.16) 0%, transparent 70%);
+  --bg-grid: none;
+  --bg-texture: none;
+  --bg-stars: none;
+  --bg-texture-size: 44px 44px;
+  --grain-opacity: 0;
 
   color-scheme: dark;
 }
@@ -143,9 +145,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.65;
   /* Multi-layered background: ambient glows + tech grid texture */
-  background-image: var(--bg-grad-1), var(--bg-grad-2), var(--bg-grid), var(--bg-texture);
-  background-size: auto, auto, 72px 72px, var(--bg-texture-size);
-  background-repeat: no-repeat, no-repeat, repeat, repeat;
+  background-image: var(--bg-grad-1), var(--bg-grad-2), var(--bg-stars), var(--bg-grid), var(--bg-texture);
+  background-size: auto, auto, 100% 100%, 72px 72px, var(--bg-texture-size);
+  background-repeat: no-repeat, no-repeat, no-repeat, repeat, repeat;
   background-attachment: fixed;
 }
 
@@ -188,7 +190,7 @@ p, a, label, small,
 }
 
 :root[data-theme='dark'] body::before {
-  opacity: 0.38;
+  opacity: 0;
 }
 
 /* Grain texture overlay */
@@ -2453,21 +2455,8 @@ input, textarea {
 .project-featured-topline {
   position: absolute;
   top: 1.6rem;
-  right: 1.8rem;
-  left: 1.8rem;
-}
-
-.project-featured-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 58px;
-  height: 58px;
-  margin-bottom: 1.5rem;
-  border: 1px solid rgba(99, 102, 241, 0.22);
-  border-radius: var(--r-md);
-  background: rgba(99, 102, 241, 0.1);
-  color: var(--olive-mid);
+  right: clamp(1.6rem, 4vw, 2.5rem);
+  left: clamp(1.6rem, 4vw, 2.5rem);
 }
 
 .project-featured h3 {
@@ -2525,9 +2514,9 @@ input, textarea {
 
 .project-featured-progress {
   position: absolute;
-  right: 1.8rem;
+  right: clamp(1.6rem, 4vw, 2.5rem);
   bottom: 1.35rem;
-  left: 1.8rem;
+  left: clamp(1.6rem, 4vw, 2.5rem);
   height: 2px;
   overflow: hidden;
   border-radius: var(--r-full);
