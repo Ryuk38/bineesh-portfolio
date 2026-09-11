@@ -3954,11 +3954,12 @@ input, textarea {
    ============================================================ */
 @media (max-width: 480px) {
   .section {
-    padding: 4.5rem 1.25rem;
+    padding: 4rem 1rem;
   }
 
   .section-hero {
-    padding: 3rem 1.25rem 4rem;
+    min-height: auto;
+    padding: 6.25rem 1rem 3.5rem;
   }
 
   .hero-copy {
@@ -3967,6 +3968,13 @@ input, textarea {
 
   .hero-buttons {
     justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+  }
+
+  .hero-buttons .btn {
+    flex: 1 1 9.5rem;
+    min-width: 0;
   }
 
   .hero-profile,
@@ -3988,33 +3996,35 @@ input, textarea {
   }
 
   .navbar-actions {
-    right: 1rem;
+    position: static;
     gap: 0.5rem;
   }
 }
 
 @media (max-width: 767px) {
   .section {
-    padding: 4rem 1.25rem;
+    padding: 4rem 1rem;
   }
  
   .section-hero {
-    padding: 3rem 1.25rem 4rem;
+    min-height: auto;
+    padding: 6.25rem 1rem 3.5rem;
     overflow-x: hidden;
   }
  
   .hero-grid {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1.5rem;
   }
  
   .hero-title {
-    font-size: clamp(2rem, 8vw, 3rem) !important;
+    font-size: clamp(2.25rem, 11vw, 3.35rem) !important;
   }
  
   .hero-subtitle {
-    font-size: 0.95rem;
-    margin-bottom: 1.75rem;
+    max-width: 34rem;
+    margin: 1rem auto 1.35rem;
+    font-size: 0.88rem;
   }
  
   .hero-profile {
@@ -4029,8 +4039,24 @@ input, textarea {
   }
  
   .hero-panel {
-    padding: 1.25rem;
-    gap: 1rem;
+    padding: 1.15rem;
+    gap: 1.1rem;
+  }
+
+  .stats-grid {
+    gap: 0.55rem;
+  }
+
+  .stat-card {
+    padding: 0.8rem 0.55rem;
+  }
+
+  .stat-value {
+    font-size: 1.15rem;
+  }
+
+  .stat-label {
+    font-size: 0.58rem;
   }
  
   .section-heading {
