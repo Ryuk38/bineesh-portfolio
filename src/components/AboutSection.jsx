@@ -30,7 +30,7 @@ export default function AboutSection({ about, skillBars, education, certificatio
         </article>
 
         <article className="about-tile about-tile-image">
-          <img src={heroImage} alt={`${about.profileName} portrait`} width="1254" height="1254" loading="lazy" decoding="async" />
+          <img src="/Assets/image2.jpeg" alt={`${about.profileName} workspace`} width="1080" height="808" loading="lazy" decoding="async" />
         </article>
 
         <article className="about-tile about-tile-craft glass card-3d reveal-right">

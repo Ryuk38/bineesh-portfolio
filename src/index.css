@@ -394,8 +394,7 @@ input, textarea {
 }
 
 .section:not(.section-hero) {
-  content-visibility: auto;
-  contain-intrinsic-size: 800px;
+  content-visibility: visible;
 }
 
 /* AI/data/ML signal graphic: kept behind the readable portfolio layer. */
@@ -4182,6 +4181,31 @@ input, textarea {
   .hero-grid {
     grid-template-columns: 1fr;
     gap: 1.75rem;
+  }
+}
+
+@media (min-width: 900px) and (max-width: 1099px) {
+  .section-hero {
+    min-height: auto;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+}
+
+@media (pointer: coarse), (max-width: 767px) {
+  html,
+  body {
+    height: auto;
+    min-height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    touch-action: pan-y;
+  }
+
+  .app-container,
+  .main-content {
+    min-height: 100%;
+    overflow: visible;
   }
 }
 
