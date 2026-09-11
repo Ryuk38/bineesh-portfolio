@@ -96,8 +96,8 @@ export default function PortfolioApp({ initialContent }) {
   const [theme, setTheme] = useState('light');
   const [themeTransitioning, setThemeTransitioning] = useState(false);
   const [navHidden, setNavHidden] = useState(false);
-  const [sidebarClosed, setSidebarClosed] = useState(false);
   const lastScrollYRef = useRef(0);
+  const scrollFrameRef = useRef(null);
 
   const mainRef = useRef(null);
 
@@ -108,24 +108,32 @@ export default function PortfolioApp({ initialContent }) {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      const scrollingDown = currentScrollY > lastScrollYRef.current;
-      setScrollY(currentScrollY);
-      setNavHidden(currentScrollY > 100 && scrollingDown);
-      if (currentScrollY <= 20) setNavHidden(false);
-      lastScrollYRef.current = currentScrollY;
+      if (scrollFrameRef.current) return;
 
-      const sections = document.querySelectorAll('section[id]');
-      let current = 'home';
-      for (const section of sections) {
-        const top = section.offsetTop - 150;
-        if (window.scrollY >= top) {
-          current = section.getAttribute('id');
+      scrollFrameRef.current = window.requestAnimationFrame(() => {
+        const scrollingDown = currentScrollY > lastScrollYRef.current;
+        setScrollY(currentScrollY);
+        setNavHidden(currentScrollY > 100 && scrollingDown);
+        if (currentScrollY <= 20) setNavHidden(false);
+        lastScrollYRef.current = currentScrollY;
+
+        const sections = document.querySelectorAll('section[id]');
+        let current = 'home';
+        for (const section of sections) {
+          const top = section.offsetTop - 150;
+          if (currentScrollY >= top) {
+            current = section.getAttribute('id');
+          }
         }
-      }
-      setActiveSection(current);
+        setActiveSection((active) => active === current ? active : current);
+        scrollFrameRef.current = null;
+      });
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (scrollFrameRef.current) window.cancelAnimationFrame(scrollFrameRef.current);
+    };
   }, []);
 
   /* ── Theme ── */
@@ -178,22 +186,16 @@ export default function PortfolioApp({ initialContent }) {
       <Chatbot content={content} />
 
       {/* Portfolio */}
-      <div className={`app-container${navHidden || sidebarClosed ? ' nav-collapsed' : ''}`} ref={mainRef}>
+      <div className={`app-container${navHidden ? ' nav-collapsed' : ''}`} ref={mainRef}>
         <Navbar
           activeSection={activeSection}
           menuOpen={menuOpen}
           onToggleMenu={() => setMenuOpen((o) => !o)}
-          onToggleSidebar={() => {
-            setNavHidden(false);
-            setSidebarClosed(false);
-          }}
-          onCloseSidebar={() => setSidebarClosed(true)}
           onCloseMenu={() => setMenuOpen(false)}
-          hidden={navHidden || sidebarClosed}
+          hidden={navHidden}
           resumeUrl={content.hero.resumeUrl || resumeUrl}
           theme={theme}
           onToggleTheme={toggleTheme}
-          brand={content.site.brand}
         />
 
         <main className="main-content">

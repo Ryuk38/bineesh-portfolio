@@ -390,6 +390,12 @@ input, textarea {
   z-index: var(--z-canvas);
   pointer-events: none;
   opacity: 0.72;
+  contain: strict;
+}
+
+.section:not(.section-hero) {
+  content-visibility: auto;
+  contain-intrinsic-size: 800px;
 }
 
 /* AI/data/ML signal graphic: kept behind the readable portfolio layer. */
@@ -2119,6 +2125,80 @@ input, textarea {
 @media (min-width: 1100px) {
   .projects-template-grid {
     grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Keep the primary navigation as a top header on every desktop width. */
+@media (min-width: 1100px) {
+  .navbar {
+    right: 0;
+    width: auto;
+    height: auto;
+    min-height: 0;
+    padding: 1.1rem 0;
+    border-right: 0;
+    border-bottom: 0;
+    background: rgba(248, 250, 255, 0.96);
+    backdrop-filter: blur(18px) saturate(130%);
+    -webkit-backdrop-filter: blur(18px) saturate(130%);
+  }
+
+  .navbar-inner {
+    height: auto;
+    max-width: 1200px;
+    padding: 0 5.5rem 0 2rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .navbar-pill {
+    flex: 0 1 auto;
+    align-items: center;
+    flex-direction: row;
+    padding: 0.45rem;
+    border-radius: var(--r-full);
+  }
+
+  .navbar-brand-row {
+    display: flex;
+    align-items: center;
+  }
+
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+  }
+
+  .navbar-brand span:last-child {
+    display: grid;
+    gap: 0.12rem;
+  }
+
+  .navbar-brand strong {
+    color: var(--color-text);
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    letter-spacing: 0.1em;
+  }
+
+  .navbar-brand small {
+    color: var(--color-text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.08em;
+  }
+
+  .sidebar-reopen,
+  .sidebar-close {
+    display: none !important;
+  }
+
+  .main-content,
+  .app-container.nav-collapsed .main-content {
+    margin-left: 0;
+    padding-top: 72px;
   }
 }
 
@@ -3957,6 +4037,93 @@ input, textarea {
     font-size: clamp(1.8rem, 6vw, 2.2rem) !important;
     margin-bottom: 2rem;
   }
+}
+
+/* Final desktop navigation layout: keep the portfolio header horizontal. */
+@media (min-width: 1100px) {
+  .navbar {
+    left: 0;
+    right: 0;
+    width: auto;
+    height: auto;
+    min-height: 0;
+    padding: 1.1rem 0;
+    border-right: 0;
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .navbar-inner {
+    height: auto;
+    max-width: 1200px;
+    padding: 0 2rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .navbar-pill {
+    width: min(900px, calc(100vw - 220px));
+    flex: 0 1 900px;
+    align-items: center;
+    flex-direction: row;
+    gap: 0.2rem;
+    padding: 0.45rem;
+    border-radius: var(--r-full);
+    justify-content: center;
+  }
+
+  .navbar-brand-row {
+    display: none;
+  }
+
+  .navbar-actions {
+    position: absolute;
+    top: 50%;
+    right: 2rem;
+    bottom: auto;
+    left: auto;
+    justify-content: flex-end;
+    transform: translateY(-50%);
+  }
+
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    margin: 0;
+    padding: 0;
+    border-bottom: 0;
+  }
+
+  .navbar-brand span:last-child {
+    display: grid;
+    gap: 0.12rem;
+  }
+
+  .navbar-brand strong {
+    font-size: 0.82rem;
+  }
+
+  .navbar-brand small {
+    font-size: 0.55rem;
+  }
+
+  .sidebar-reopen,
+  .sidebar-close {
+    display: none !important;
+  }
+
+  .main-content,
+  .app-container.nav-collapsed .main-content {
+    margin-left: 0;
+    padding-top: 72px;
+  }
+}
+
+:root[data-theme='dark'] .navbar {
+  background: rgba(15, 23, 42, 0.96);
 }
 
 @media (min-width: 900px) {

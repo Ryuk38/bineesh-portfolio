@@ -37,7 +37,7 @@ export default function HeroSection({ hero, resumeUrl, heroImage }) {
         <div className="hero-panel glass-strong card-3d reveal-scale">
           <div className="hero-profile">
             <div className="hero-profile-glow" />
-            <img src={heroImage} alt={hero.name} />
+            <img src={heroImage} alt={hero.name} width="1254" height="1254" fetchPriority="high" decoding="async" />
           </div>
 
           <div>
