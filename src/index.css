@@ -4200,11 +4200,20 @@ input, textarea {
     overflow-x: hidden;
     overflow-y: auto;
     touch-action: pan-y;
+    overscroll-behavior-y: auto;
   }
 
   .app-container,
   .main-content {
     min-height: 100%;
+    overflow: visible;
+  }
+
+  .section-hero,
+  .hero-grid,
+  .hero-panel {
+    height: auto;
+    max-height: none;
     overflow: visible;
   }
 }
