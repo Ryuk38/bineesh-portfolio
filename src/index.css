@@ -4185,7 +4185,7 @@ input, textarea {
   }
 }
 
-@media (min-width: 1100px) {
+@media (min-width: 900px) {
   .hero-grid {
     grid-template-columns: 1.05fr 0.95fr;
   }
