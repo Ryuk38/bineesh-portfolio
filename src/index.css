@@ -4152,7 +4152,40 @@ input, textarea {
   background: rgba(15, 23, 42, 0.96);
 }
 
-@media (min-width: 900px) {
+/* Tablet and mobile browsers can report a desktop-style layout viewport. */
+@media (max-width: 1099px) {
+  .navbar {
+    padding: 0.75rem 0;
+    background: var(--color-surface);
+    backdrop-filter: blur(16px) saturate(140%);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+  }
+
+  .navbar-inner {
+    padding: 0 1rem;
+    justify-content: flex-end;
+  }
+
+  .navbar-pill {
+    display: none;
+  }
+
+  .navbar-actions {
+    position: static;
+    gap: 0.5rem;
+  }
+
+  .hamburger {
+    display: inline-flex;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+}
+
+@media (min-width: 1100px) {
   .hero-grid {
     grid-template-columns: 1.05fr 0.95fr;
   }
