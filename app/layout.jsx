@@ -1,4 +1,4 @@
-import '../src/index.css';
+﻿import '../src/index.css';
 import Script from 'next/script';
 
 export const viewport = {
@@ -9,35 +9,35 @@ export const viewport = {
 
 export const metadata = {
   title: 'Bineesh Mathew | Portfolio',
-  description: 'Bineesh Mathew – Personal Portfolio showcasing projects, experience, and expertise.',
-  keywords: 'Bineesh Mathew, Portfolio, Software Engineer, Developer, Machine Learning, Web Development',
+  description: 'Bineesh Mathew – AI & Data Science Engineer specializing in ML, data analytics, and cloud-native development.',
+  keywords: 'Bineesh Mathew, Portfolio, AI Engineer, Data Science, Machine Learning, Python, Deep Learning, NLP, Web Development, Big Data',
   authors: [{ name: 'Bineesh Mathew' }],
   robots: 'index, follow',
   alternates: {
-    canonical: 'https://ameyajarvis.qzz.io',
+    canonical: 'https://bineeshmathew.dev',
   },
   openGraph: {
     type: 'website',
-    url: 'https://ameyajarvis.qzz.io',
-    title: 'Bineesh Mathew | Portfolio',
-    description: 'Bineesh Mathew – Personal Portfolio showcasing projects, experience, and expertise.',
+    url: 'https://bineeshmathew.dev',
+    title: 'Bineesh Mathew | AI & Data Science Engineer',
+    description: 'Bineesh Mathew – AI & Data Science Engineer. Showcasing projects in ML, data analytics, and full-stack development.',
     siteName: 'Bineesh Mathew Portfolio',
     locale: 'en_US',
     images: [
       {
-        url: 'https://ameyajarvis.qzz.io/Assets/image.webp',
+        url: 'https://bineeshmathew.dev/Assets/image.webp',
         width: 1200,
         height: 630,
-        alt: 'Bineesh Mathew Portfolio',
+        alt: 'Bineesh Mathew – AI & Data Science Engineer',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    url: 'https://ameyajarvis.qzz.io',
-    title: 'Bineesh Mathew | Portfolio',
-    description: 'Bineesh Mathew – Personal Portfolio showcasing projects, experience, and expertise.',
-    images: ['https://ameyajarvis.qzz.io/Assets/image.webp'],
+    url: 'https://bineeshmathew.dev',
+    title: 'Bineesh Mathew | AI & Data Science Engineer',
+    description: 'Bineesh Mathew – AI & Data Science Engineer. Showcasing projects in ML, data analytics, and full-stack development.',
+    images: ['https://bineeshmathew.dev/Assets/image.webp'],
   },
 };
 
@@ -46,10 +46,11 @@ const jsonLd = {
   "@type": "Person",
   "name": "Bineesh Mathew",
   "jobTitle": "AI & Data Science Engineer",
-  "url": "https://ameyajarvis.qzz.io",
+  "url": "https://bineeshmathew.dev",
   "sameAs": [
     "https://github.com/Ryuk38",
-    "https://www.linkedin.com/in/bineesh38/"
+    "https://www.linkedin.com/in/bineesh38/",
+    "https://linktr.ee/bineesh38"
   ],
   "knowsAbout": [
     "Artificial Intelligence",
@@ -60,10 +61,12 @@ const jsonLd = {
     "Neural Networks",
     "Natural Language Processing",
     "Computer Vision",
-    "Data Analysis"
+    "Data Analysis",
+    "Big Data Analytics",
+    "Cloud Architecture"
   ],
-  "description": "AI & Data Science Engineer specializing in machine learning, deep learning, and innovative data-driven solutions.",
-  "image": "https://ameyajarvis.qzz.io/Assets/image.webp"
+  "description": "AI & Data Science Engineer specializing in machine learning, deep learning, data analytics, and cloud-native application development.",
+  "image": "https://bineeshmathew.dev/Assets/image.webp"
 };
 
 export default function RootLayout({ children }) {

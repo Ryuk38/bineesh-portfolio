@@ -1,26 +1,37 @@
-# Dynamic 3D Portfolio & Full-Stack Next.js CMS
+# Bineesh Mathew — Personal Portfolio
 
-A premium developer portfolio featuring a dynamic 3D background, smooth scroll transitions, and a built-in content management system (CMS) dashboard. Built natively using Next.js App Router and local file-based storage.
+A personal portfolio and full-stack CMS built with Next.js App Router, Three.js 3D background, GSAP scroll animations, and a built-in content management dashboard.
+
+---
+
+## 👤 About
+
+**Bineesh Mathew** | AI & Data Science Engineer  
+M.Sc. Big Data Analytics @ St. Xavier's College, Mumbai  
+BCA with Analytics — Kristu Jayanti College, Bengaluru (CGPA: 8.64)  
+📍 Nagpur, India | 📧 c380bineesh@gmail.com  
+🔗 [LinkedIn](https://www.linkedin.com/in/bineesh38/) · [GitHub](https://github.com/Ryuk38) · [Linktree](https://linktr.ee/bineesh38)
 
 ---
 
 ## 🚀 Technology Stack
 
 - **Framework**: Next.js 14+ (App Router)
-- **Styling**: Vanilla CSS with HSL-based dynamic light/dark mode styling
-- **3D Graphics**: Three.js integrated via React Three Fiber (`@react-three/fiber` & `@react-three/drei`)
+- **Styling**: Vanilla CSS with HSL-based dynamic light/dark mode
+- **3D Graphics**: Three.js via React Three Fiber (`@react-three/fiber` & `@react-three/drei`)
 - **Animations**: GSAP + ScrollTrigger
-- **Database**: Local JSON database files under `data/`
+- **Storage**: Local JSON files under `data/`
+- **Email**: EmailJS for contact form
 
 ---
 
 ## 📂 Architecture & Routing
 
-- `/` (Root): Public-facing portfolio page serving server-rendered portfolio content.
-- `/hellothere`: Secure admin login gateway to create/authenticate credentials.
-- `/welcometocms`: Protected admin console dashboard to manage portfolio data, soft-delete items, and manage the recycle bin.
-- `/api/portfolio`: JSON database read (GET) and write (POST) API endpoints.
-- `/api/auth`: Authentication state, registration, login, and secure session management.
+- `/` — Public-facing portfolio page (server-rendered)
+- `/hellothere` — Secure admin login gateway
+- `/welcometocms` — Protected CMS dashboard to manage all portfolio content
+- `/api/portfolio` — JSON data read (GET) and write (POST) endpoints
+- `/api/auth` — Authentication, session management
 
 ---
 
@@ -31,22 +42,31 @@ A premium developer portfolio featuring a dynamic 3D background, smooth scroll t
 npm install
 ```
 
-### 2. Run the Development Server
+### 2. Set up Environment Variables
+Copy `.env.example` to `.env.local` and fill in your keys:
+```bash
+GEMINI_API_KEY=your_gemini_api_key
+GEMINI_MODEL=gemini-2.5-flash
+```
+
+### 3. Run Development Server
 ```bash
 npm run dev
 ```
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-### 3. Build for Production
+### 4. Build for Production
 ```bash
 npm run build
 npm run start
 ```
 
+> **Tip:** If you see a `Cannot find module './[number].js'` error, delete the `.next` folder and re-run `npm run dev`.
+
 ---
 
 ## 💾 Local Storage Engine
 
-No external databases are required. Your configuration files are stored locally in:
-- `data/portfolioContent.json` (portfolio info, projects, skills, education, contact)
-- `data/adminCredentials.json` (secure login hashed credentials)
+No external database required. Data is stored in:
+- `data/portfolioContent.json` — portfolio info, projects, skills, education, contact
+- `data/adminCredentials.json` — hashed admin login credentials

@@ -26,7 +26,11 @@ export default function DashboardWrapper({ initialContent }) {
         hero: { ...defaults.hero, ...initialContent.hero },
         about: { ...defaults.about, ...initialContent.about },
         experience: initialContent.experience || defaults.experience,
-        projects: initialContent.projects || defaults.projects,
+        projects: (initialContent.projects || defaults.projects).map((project) => ({
+          ...project,
+          shortDescription: project.shortDescription || project.description || '',
+          fullDescription: project.fullDescription || project.description || '',
+        })),
         contact: { ...defaults.contact, ...initialContent.contact },
         footer: { ...defaults.footer, ...initialContent.footer }
       }

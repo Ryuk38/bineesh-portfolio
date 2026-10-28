@@ -7,8 +7,8 @@
   "hero": {
     "eyebrow": "AI & Data Science",
     "name": "Bineesh Mathew",
-    "title": "AI & DS Engineer",
-    "subtitle": "Building intelligent solutions with Python, Machine Learning, and Cloud Architecture.",
+    "title": "Data Analytics & AI/ML",
+    "subtitle": "Turning complex data into actionable insights with Python, SQL, Machine Learning, and Power BI.",
     "image": "/Assets/image.png",
     "resumeUrl": "/Assets/Resume.pdf",
     "buttons": {
@@ -17,7 +17,7 @@
     },
     "highlights": [
       "AI and data analysis focus",
-      "Cloud architecture and full-stack builds",
+      "Winner · HNSC University Datathon",
       "Open to internships and collaborations"
     ],
     "stats": [
@@ -45,8 +45,8 @@
   },
   "about": {
     "profileName": "Bineesh Mathew",
-    "profileTitle": "AI & Data Science Engineer",
-    "bio": "AI/DS engineer building ML pipelines, data products, and cloud-native apps that ship fast.",
+    "profileTitle": "Data Analyst & AI/ML Enthusiast",
+    "bio": "M.Sc. Big Data Analytics student building machine learning models, interactive dashboards, and data-driven solutions to solve real-world problems.",
     "location": "Mumbai, India",
     "availability": "Open to work",
     "technicalFocus": "Focused on building data-driven and intelligent applications using Python, machine learning, data analytics, process mining, and cloud-ready development. I enjoy turning complex data into practical systems and meaningful insights.",
@@ -161,14 +161,16 @@
     {
       "id": "project-resume-checker",
       "title": "WoodCorp Order-to-Cash Process Mining",
-      "description": "A system to parse, analyze, and score resumes, showing skills in data extraction and analysis.",
+      "description": "Performed data analysis and process mining on 19,953 orders to identify delivery trends, operational bottlenecks, and customer-level performance. Developed interactive dashboards to track KPIs, OTD, late deliveries, warehouse performance, and financial impact, uncovering €12.1M in late-delivery costs and €5.08M in potential savings through improved delivery performance.",
       "tags": [
-        "Celonis EMS · Excel · PowerPoint"
+        "Celonis EMS · Excel · PowerPoint · KPI Analysis"
       ],
       "accent": "cyan",
       "iconKey": "bar-chart",
-      "link": "https://github.com/Ryuk38/Resume-Checker",
-      "image": ""
+      "link": "https://docs.google.com/presentation/d/10HMORm5dZ3Sx_uy9OInLflg_15QwI3JX/edit?usp=sharing&ouid=111630606393576731173&rtpof=true&sd=true",
+      "image": "",
+      "shortDescription": "Analyzed Woodcorp’s supply chain performance using Celonis Process Mining to identify delivery inefficiencies, operational bottlenecks, and performance gaps.",
+      "fullDescription": "Performed data analysis and process mining on 19,953 orders to identify delivery trends, operational bottlenecks, and customer-level performance. Developed interactive dashboards to track KPIs, OTD, late deliveries, warehouse performance, and financial impact, uncovering €12.1M in late-delivery costs and €5.08M in potential savings through improved delivery performance."
     },
     {
       "id": "project-crime-analysis",
@@ -180,19 +182,23 @@
       "accent": "purple",
       "iconKey": "users",
       "link": "https://github.com/Ryuk38/phishing-detector.git",
-      "image": ""
+      "image": "",
+      "shortDescription": "Built a real-time AI-powered phishing detection system that combines URL, domain, and SSL analysis to identify malicious websites",
+      "fullDescription": "Developed a machine learning–based phishing detection system that analyzes URLs and domain-level characteristics to identify potentially malicious websites. Implemented feature engineering and a LightGBM classification model, integrated additional domain and SSL information, and built an interactive Streamlit interface for real-time URL analysis and phishing risk assessment."
     },
     {
       "id": "project-account-management",
-      "title": "Music Catalog Valuation for IP-Backed Banking Loans",
+      "title": "Machine Learning-Based Film Library Valuation",
       "description": "Full-stack CRUD app for user account management, demonstrating database and UI skills.",
       "tags": [
-        "Python · Pandas · XGBoost"
+        "Python · Pandas · Scikit-learn · HistGradientBoosting · TF-IDF · DCF Valuation"
       ],
       "accent": "green",
-      "iconKey": "users",
-      "link": "https://github.com/Ryuk38/Account-Management-System",
-      "image": ""
+      "iconKey": "sun",
+      "link": "https://github.com/Ryuk38/film-library-valuation-ml.git",
+      "image": "",
+      "shortDescription": "Machine learning framework for predicting film revenue and estimating film library value for IP-backed lending using TMDB/IMDb data.",
+      "fullDescription": "Developed a machine learning framework to estimate worldwide box-office revenue and evaluate film libraries for IP-backed lending. Analyzed 16,048 films using TMDB/IMDb metadata, feature engineering, TF-IDF, and multiple regression models. Selected HistGradientBoosting, achieving a test R² of 0.52 and a top-decile lift of 6.85×. Integrated revenue predictions into a discounted cash flow (DCF) valuation framework to estimate potential film library value and support lending decisions."
     },
     {
       "id": "project-hunger-bridge",
@@ -206,7 +212,9 @@
       "iconKey": "heart",
       "link": "https://github.com/Ryuk38/Hunger-Bridge",
       "image": "",
-      "deleted": true
+      "deleted": true,
+      "shortDescription": "A socially focused project that connects food donors with organizations to reduce food waste.",
+      "fullDescription": "A socially focused project that connects food donors with organizations to reduce food waste."
     },
     {
       "id": "project-solar-explorer",
@@ -220,7 +228,9 @@
       "iconKey": "sun",
       "link": "https://Ryuk38.github.io/Solar-Explorer/",
       "image": "",
-      "deleted": true
+      "deleted": true,
+      "shortDescription": "Interactive solar system exploration tool with real-time planetary data and 3D rendering.",
+      "fullDescription": "Interactive solar system exploration tool with real-time planetary data and 3D rendering."
     },
     {
       "id": "project-neuronet",
@@ -234,7 +244,9 @@
       "iconKey": "book-open",
       "link": "https://neuronet.co.in",
       "image": "",
-      "deleted": true
+      "deleted": true,
+      "shortDescription": "Youth-driven workshops on psychology and artificial intelligence.",
+      "fullDescription": "Youth-driven workshops on psychology and artificial intelligence."
     },
     {
       "id": "project-wfz2lvm",
@@ -245,9 +257,11 @@
       ],
       "accent": "cyan",
       "iconKey": "heart",
-      "link": "https://example.com",
+      "link": "https://github.com/Ryuk38/hpa-gene-expression-dashboard",
       "image": "",
-      "deleted": false
+      "deleted": false,
+      "shortDescription": "Interactive dashboard for exploring and analyzing Human Protein Atlas gene expression data using Python.",
+      "fullDescription": "Interactive dashboard for exploring and analyzing Human Protein Atlas gene expression data using Python."
     },
     {
       "id": "project-pw2ydaw",
@@ -260,6 +274,23 @@
       "accent": "cyan",
       "iconKey": "file-text",
       "link": "https://example.com",
+      "image": "",
+      "deleted": true,
+      "shortDescription": "Describe the project here.",
+      "fullDescription": "Describe the project here."
+    },
+    {
+      "id": "project-oj8b591",
+      "title": "Supply Chain & Logistics Analytics Dashboard",
+      "description": "Describe the project here.",
+      "shortDescription": "Interactive Power BI dashboard analyzing supply chain performance, delivery delays, profit leakage, loss-making orders, and financial impact to identify operational risks and improvement opportunities.",
+      "fullDescription": "Developed a multi-page Power BI dashboard using the DataCo Smart Supply Chain dataset to analyze sales, profitability, order status, and delivery performance. Built interactive reports covering supply chain overview, profit leakage, delivery failures, root cause analysis, and financial impact with actionable recommendations. Used DAX measures, KPI cards, slicers, trend analysis, geographic maps, and detailed visualizations to identify late deliveries, loss-making orders, and recoverable profit opportunities.",
+      "tags": [
+        "Power BI · DAX · Data Visualization · Supply Chain Analytics · KPI Reporting · Business Intelligence"
+      ],
+      "accent": "cyan",
+      "iconKey": "book-open",
+      "link": "https://github.com/Ryuk38/supply-chain-logistics-powerbi",
       "image": "",
       "deleted": false
     }

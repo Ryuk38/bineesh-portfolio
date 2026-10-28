@@ -19,7 +19,7 @@ import ProjectsSection from '../src/components/ProjectsSection';
 import ContactSection from '../src/components/ContactSection';
 import Footer from '../src/components/Footer';
 import CustomCursor from '../src/components/CustomCursor';
-import Chatbot from '../src/components/Chatbot';
+// import Chatbot from '../src/components/Chatbot';
 import useScrollAnimations from '../src/hooks/useScrollAnimations';
 
 import { createDefaultPortfolioContent } from '../src/data/portfolioContent';
@@ -170,7 +170,7 @@ export default function PortfolioApp({ initialContent }) {
           <span className="meteor meteor-five" />
         </div>
       ) : null}
-      <Chatbot content={content} />
+      {/* Nova chatbot temporarily disabled */}
 
       {/* Portfolio */}
       <div className={`app-container${navHidden ? ' nav-collapsed' : ''}`} ref={mainRef}>

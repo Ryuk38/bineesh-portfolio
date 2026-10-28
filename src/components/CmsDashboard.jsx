@@ -72,6 +72,8 @@ function createBlankProject() {
     id: makeId('project'),
     title: 'New Project',
     description: 'Describe the project here.',
+    shortDescription: 'Add a short project summary.',
+    fullDescription: 'Add the full project description shown when visitors open the project.',
     tags: ['Tag 1', 'Tag 2'],
     accent: 'cyan',
     iconKey: 'file-text',
@@ -871,8 +873,11 @@ export default function CmsDashboard({
                             <TextInput value={item.image || ''} onChange={(event) => updateArrayItem(['projects'], content.projects.indexOf(item), { ...item, image: event.target.value })} />
                           </Field>
                         </div>
-                        <Field label="Description">
-                          <TextArea rows={4} value={item.description} onChange={(event) => updateArrayItem(['projects'], content.projects.indexOf(item), { ...item, description: event.target.value })} />
+                        <Field label="Short Description" hint="Shown on the featured project card.">
+                          <TextArea rows={3} value={item.shortDescription || item.description || ''} onChange={(event) => updateArrayItem(['projects'], content.projects.indexOf(item), { ...item, shortDescription: event.target.value })} />
+                        </Field>
+                        <Field label="Full Description" hint="Shown in the project details modal.">
+                          <TextArea rows={6} value={item.fullDescription || item.description || ''} onChange={(event) => updateArrayItem(['projects'], content.projects.indexOf(item), { ...item, fullDescription: event.target.value })} />
                         </Field>
                         <Field label="Tags" hint="Separate tags with commas.">
                           <TextInput

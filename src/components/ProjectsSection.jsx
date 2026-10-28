@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+﻿﻿import { useEffect, useState } from 'react';
 import { ExternalLink, X } from 'lucide-react';
 
 function SectionHeading({ children, className = '' }) {
@@ -70,11 +70,11 @@ export default function ProjectsSection({ projects }) {
               <ExternalLink size={18} />
             </div>
             <h3>{featuredProject.title}</h3>
-            <p>{featuredProject.description}</p>
+            <p>{featuredProject.shortDescription || featuredProject.description}</p>
             <div className="project-index-tags">
               {featuredProject.tags.map((tag) => <span key={tag}>{tag}</span>)}
             </div>
-            <span className="project-featured-cta">Open project <span aria-hidden="true">↗</span></span>
+            <span className="project-featured-cta">Open project <span aria-hidden="true">&#x2197;</span></span>
             <span className={`project-featured-progress${isPaused ? ' is-paused' : ''}`} aria-hidden="true" />
           </a>
         ) : null}
@@ -101,7 +101,7 @@ export default function ProjectsSection({ projects }) {
               <span className="project-index-icon"><ProjectIcon project={project} size={19} /></span>
               <span className="project-index-copy">
                 <strong>{project.title}</strong>
-                <small>{project.tags.join(' · ')}</small>
+                <small>{project.tags.join(' Â· ')}</small>
               </span>
               <ExternalLink size={16} className="project-index-arrow" />
             </a>
@@ -123,16 +123,20 @@ export default function ProjectsSection({ projects }) {
                 <X size={18} aria-hidden="true" />
               </button>
             </div>
-            <p className="project-detail-description">{selectedProject.description}</p>
+            <p className="project-detail-description">
+              {selectedProject.fullDescription || selectedProject.description || selectedProject.shortDescription}
+            </p>
             <div className="project-detail-tags">
               {selectedProject.tags.map((tag) => <span key={tag}>{tag}</span>)}
             </div>
             <div className="project-detail-actions">
+              {/* Demo button — will be filled in later
               <a href={selectedProject.demo || selectedProject.link} target="_blank" rel="noreferrer" className="btn btn-primary">
                 <ExternalLink size={16} aria-hidden="true" />
                 Demo
               </a>
-              <a href={selectedProject.source || selectedProject.link} target="_blank" rel="noreferrer" className="btn btn-outline">
+              */}
+              <a href={selectedProject.source || selectedProject.link} target="_blank" rel="noreferrer" className="btn btn-primary" style={{ flex: 1 }}>
                 <ExternalLink size={16} aria-hidden="true" />
                 Project Link
               </a>

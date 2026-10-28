@@ -43,7 +43,18 @@ export const CONTACT_ICON_OPTIONS = [
 ];
 
 function createProject(id, title, description, tags, accent, iconKey, link, image = '') {
-  return { id, title, description, tags, accent, iconKey, link, image };
+  return {
+    id,
+    title,
+    description,
+    shortDescription: description,
+    fullDescription: description,
+    tags,
+    accent,
+    iconKey,
+    link,
+    image,
+  };
 }
 
 function createSkill(id, label, value, color) {
